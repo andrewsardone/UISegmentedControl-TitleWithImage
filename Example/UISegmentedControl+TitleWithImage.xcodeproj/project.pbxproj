@@ -20,6 +20,8 @@
 		492AFADF179358240064F44A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492AFABF179358240064F44A /* UIKit.framework */; };
 		492AFAE0179358240064F44A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492AFAC1179358240064F44A /* Foundation.framework */; };
 		492AFAE8179358240064F44A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 492AFAE6179358240064F44A /* InfoPlist.strings */; };
+		4B1CCEF535764E699935D0E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F53676FE05D4FEB86DF1354 /* libPods.a */; };
+		88973608BF8D496683126F6D /* libPods-UISegmentedControl+TitleWithImageTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02084FAB4F8B4A06BBD92297 /* libPods-UISegmentedControl+TitleWithImageTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02084FAB4F8B4A06BBD92297 /* libPods-UISegmentedControl+TitleWithImageTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UISegmentedControl+TitleWithImageTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		492AFABC179358240064F44A /* UISegmentedControl+TitleWithImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UISegmentedControl+TitleWithImage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		492AFABF179358240064F44A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		492AFAC1179358240064F44A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +53,9 @@
 		492AFADD179358240064F44A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		492AFAE5179358240064F44A /* UISegmentedControl+TitleWithImageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UISegmentedControl+TitleWithImageTests-Info.plist"; sourceTree = "<group>"; };
 		492AFAE7179358240064F44A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DC7D5D068704EE5AB8EE091 /* Pods-UISegmentedControl+TitleWithImageTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UISegmentedControl+TitleWithImageTests.xcconfig"; path = "Pods/Pods-UISegmentedControl+TitleWithImageTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		9F53676FE05D4FEB86DF1354 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5FE8E753FEE417A83CC0E63 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 				492AFAC0179358240064F44A /* UIKit.framework in Frameworks */,
 				492AFAC2179358240064F44A /* Foundation.framework in Frameworks */,
 				492AFAC4179358240064F44A /* CoreGraphics.framework in Frameworks */,
+				4B1CCEF535764E699935D0E8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +77,7 @@
 				492AFADE179358240064F44A /* SenTestingKit.framework in Frameworks */,
 				492AFADF179358240064F44A /* UIKit.framework in Frameworks */,
 				492AFAE0179358240064F44A /* Foundation.framework in Frameworks */,
+				88973608BF8D496683126F6D /* libPods-UISegmentedControl+TitleWithImageTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +91,8 @@
 				492AFAE3179358240064F44A /* UISegmentedControl+TitleWithImageTests */,
 				492AFABE179358240064F44A /* Frameworks */,
 				492AFABD179358240064F44A /* Products */,
+				A5FE8E753FEE417A83CC0E63 /* Pods.xcconfig */,
+				9DC7D5D068704EE5AB8EE091 /* Pods-UISegmentedControl+TitleWithImageTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +112,8 @@
 				492AFAC1179358240064F44A /* Foundation.framework */,
 				492AFAC3179358240064F44A /* CoreGraphics.framework */,
 				492AFADD179358240064F44A /* SenTestingKit.framework */,
+				9F53676FE05D4FEB86DF1354 /* libPods.a */,
+				02084FAB4F8B4A06BBD92297 /* libPods-UISegmentedControl+TitleWithImageTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 492AFAEE179358240064F44A /* Build configuration list for PBXNativeTarget "UISegmentedControl+TitleWithImage" */;
 			buildPhases = (
+				F4B63BA7214A4EB7AE3A6F63 /* Check Pods Manifest.lock */,
 				492AFAB8179358240064F44A /* Sources */,
 				492AFAB9179358240064F44A /* Frameworks */,
 				492AFABA179358240064F44A /* Resources */,
+				D79B4F0F2948407797223E34 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,10 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 492AFAF1179358240064F44A /* Build configuration list for PBXNativeTarget "UISegmentedControl+TitleWithImageTests" */;
 			buildPhases = (
+				8DCE50C7D94441ECB91351DA /* Check Pods Manifest.lock */,
 				492AFAD7179358240064F44A /* Sources */,
 				492AFAD8179358240064F44A /* Frameworks */,
 				492AFAD9179358240064F44A /* Resources */,
 				492AFADA179358240064F44A /* ShellScript */,
+				DFD90BF8653D4AE580A93776 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,6 +264,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		8DCE50C7D94441ECB91351DA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D79B4F0F2948407797223E34 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFD90BF8653D4AE580A93776 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-UISegmentedControl+TitleWithImageTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4B63BA7214A4EB7AE3A6F63 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -358,7 +434,9 @@
 		};
 		492AFAEF179358240064F44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5FE8E753FEE417A83CC0E63 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Prefix.pch";
 				INFOPLIST_FILE = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Info.plist";
@@ -369,7 +447,9 @@
 		};
 		492AFAF0179358240064F44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5FE8E753FEE417A83CC0E63 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Prefix.pch";
 				INFOPLIST_FILE = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Info.plist";
@@ -380,11 +460,13 @@
 		};
 		492AFAF2179358240064F44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DC7D5D068704EE5AB8EE091 /* Pods-UISegmentedControl+TitleWithImageTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UISegmentedControl+TitleWithImage.app/UISegmentedControl+TitleWithImage";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Prefix.pch";
@@ -397,11 +479,13 @@
 		};
 		492AFAF3179358240064F44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DC7D5D068704EE5AB8EE091 /* Pods-UISegmentedControl+TitleWithImageTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UISegmentedControl+TitleWithImage.app/UISegmentedControl+TitleWithImage";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISegmentedControl+TitleWithImage/UISegmentedControl+TitleWithImage-Prefix.pch";

@@ -18,3 +18,10 @@ profile
 DerivedData
 .idea/
 *.hmap
+
+# CocoaPods
+Pods
+
+# Bundler
+.bundle
+vendor/bundle/ruby

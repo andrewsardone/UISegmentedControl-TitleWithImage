@@ -1,0 +1,17 @@
+PODS:
+  - Kiwi (2.2)
+  - UISegmentedControl+TitleWithImage (0.1.0)
+
+DEPENDENCIES:
+  - Kiwi
+  - UISegmentedControl+TitleWithImage (from `../UISegmentedControl+TitleWithImage.podspec`)
+
+EXTERNAL SOURCES:
+  UISegmentedControl+TitleWithImage:
+    :path: ../UISegmentedControl+TitleWithImage.podspec
+
+SPEC CHECKSUMS:
+  Kiwi: db174bba4ee8068b15d7122f1b22fb64b7c1d378
+  UISegmentedControl+TitleWithImage: 1bb2f22e78ad18dae84abca3a70326c7a3d16f9b
+
+COCOAPODS: 0.22.2

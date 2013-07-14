@@ -1,0 +1,7 @@
+platform :ios, :deployment_target => "5.0"
+
+pod 'UISegmentedControl+TitleWithImage', :path => '../UISegmentedControl+TitleWithImage.podspec'
+
+target 'UISegmentedControl+TitleWithImageTests', :exclusive => true do
+  pod 'Kiwi', :inhibit_warnings => true
+end
