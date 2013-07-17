@@ -1,4 +1,5 @@
 #import "UISegmentedControl+APSTitleWithImage.h"
+#import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 
 /**
@@ -120,6 +121,10 @@
 
 - (void)setTitle:(NSString *)title image:(UIImage *)image forSegmentAtIndex:(NSUInteger)segment
 {
+    self.aps_segmentsTitleImagesMap[@(segment)] = @{
+        @"title": title,
+        @"image": image
+    };
     UIView *containerView = [APSContainerView viewWithTitle:title
                                                       image:image
                                              textAttributes:[self titleTextAttributesForState:UIControlStateNormal]];
@@ -128,6 +133,56 @@
 
     [self setImage:staticImage forSegmentAtIndex:segment];
 }
+
+#pragma mark Augmenting UISegmentedControl behavior
+
++ (void)load
+{
+    method_exchangeImplementations(
+        class_getInstanceMethod(self, @selector(titleForSegmentAtIndex:)),
+        class_getInstanceMethod(self, @selector(aps_titleForSegmentAtIndex:))
+    );
+    method_exchangeImplementations(
+        class_getInstanceMethod(self, @selector(imageForSegmentAtIndex:)),
+        class_getInstanceMethod(self, @selector(aps_imageForSegmentAtIndex:))
+    );
+}
+
+- (NSString *)aps_titleForSegmentAtIndex:(NSUInteger)segment
+{
+    NSString *customTitle = self.aps_segmentsTitleImagesMap[@(segment)][@"title"];
+    return customTitle ?: [self aps_titleForSegmentAtIndex:segment];
+}
+
+- (UIImage *)aps_imageForSegmentAtIndex:(NSUInteger)segment
+{
+    UIImage *customImage = self.aps_segmentsTitleImagesMap[@(segment)][@"image"];
+    return customImage ?: [self aps_imageForSegmentAtIndex:segment];
+}
+
+#pragma mark Private
+
+static void *APSSegmentToTitleAndImageMapKey = &APSSegmentToTitleAndImageMapKey;
+
+/**
+ * A map from a segment to the various title and image components needed for our
+ * special UISegmentedControl title with image support, e.g.,
+ *
+ *     { :segment_index => { "title" => :title, "image" => :image } }
+ */
+- (NSMutableDictionary *)aps_segmentsTitleImagesMap
+{
+    NSMutableDictionary *eventsTargetActionsMap = objc_getAssociatedObject(self, APSSegmentToTitleAndImageMapKey);
+    if (eventsTargetActionsMap == nil) {
+        eventsTargetActionsMap = [NSMutableDictionary dictionary];
+        objc_setAssociatedObject(
+            self,
+            APSSegmentToTitleAndImageMapKey,
+            eventsTargetActionsMap,
+            OBJC_ASSOCIATION_RETAIN_NONATOMIC
+        );
+    }
+    return eventsTargetActionsMap;
 }
 
 @end
