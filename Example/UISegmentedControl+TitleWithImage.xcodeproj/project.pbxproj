@@ -21,6 +21,7 @@
 		492AFAE0179358240064F44A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492AFAC1179358240064F44A /* Foundation.framework */; };
 		492AFAE8179358240064F44A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 492AFAE6179358240064F44A /* InfoPlist.strings */; };
 		492AFAF7179360270064F44A /* UISegmentedControl+TitleWithImageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 492AFAF6179360270064F44A /* UISegmentedControl+TitleWithImageSpec.m */; };
+		492AFB07179612550064F44A /* UIImage+APSImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 492AFB06179612550064F44A /* UIImage+APSImages.m */; };
 		4B1CCEF535764E699935D0E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F53676FE05D4FEB86DF1354 /* libPods.a */; };
 		88973608BF8D496683126F6D /* libPods-UISegmentedControl+TitleWithImageTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02084FAB4F8B4A06BBD92297 /* libPods-UISegmentedControl+TitleWithImageTests.a */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,8 @@
 		492AFAE5179358240064F44A /* UISegmentedControl+TitleWithImageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UISegmentedControl+TitleWithImageTests-Info.plist"; sourceTree = "<group>"; };
 		492AFAE7179358240064F44A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		492AFAF6179360270064F44A /* UISegmentedControl+TitleWithImageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+TitleWithImageSpec.m"; sourceTree = "<group>"; };
+		492AFB05179612550064F44A /* UIImage+APSImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+APSImages.h"; sourceTree = "<group>"; };
+		492AFB06179612550064F44A /* UIImage+APSImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+APSImages.m"; sourceTree = "<group>"; };
 		9DC7D5D068704EE5AB8EE091 /* Pods-UISegmentedControl+TitleWithImageTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UISegmentedControl+TitleWithImageTests.xcconfig"; path = "Pods/Pods-UISegmentedControl+TitleWithImageTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		9F53676FE05D4FEB86DF1354 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FE8E753FEE417A83CC0E63 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -125,6 +128,8 @@
 			children = (
 				492AFACE179358240064F44A /* AppDelegate.h */,
 				492AFACF179358240064F44A /* AppDelegate.m */,
+				492AFB05179612550064F44A /* UIImage+APSImages.h */,
+				492AFB06179612550064F44A /* UIImage+APSImages.m */,
 				492AFAC6179358240064F44A /* Supporting Files */,
 			);
 			path = "UISegmentedControl+TitleWithImage";
@@ -337,6 +342,7 @@
 			files = (
 				492AFACC179358240064F44A /* main.m in Sources */,
 				492AFAD0179358240064F44A /* AppDelegate.m in Sources */,
+				492AFB07179612550064F44A /* UIImage+APSImages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
