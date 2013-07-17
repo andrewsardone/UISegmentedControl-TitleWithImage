@@ -6,19 +6,21 @@ SPEC_BEGIN(UISegmentedControl_TitleWithImageSpec)
 
 describe(@"UISegmentedControl+APSTitleWithImage", ^{
 
+    __block UISegmentedControl *sc;
+
+    beforeEach(^{
+        sc = [[UISegmentedControl alloc] initWithItems:nil];
+    });
+
     it(@"adds an interface for inserting a segment with both a title and image", ^{
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
-        [[segmentedControl should] respondToSelector:@selector(insertSegmentWithTitle:image:atIndex:animated:)];
+        [[sc should] respondToSelector:@selector(insertSegmentWithTitle:image:atIndex:animated:)];
     });
 
     it(@"adds an interface for settings a segment's content to both a title and image", ^{
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
-        [[segmentedControl should] respondToSelector:@selector(setTitle:image:forSegmentAtIndex:)];
+        [[sc should] respondToSelector:@selector(setTitle:image:forSegmentAtIndex:)];
     });
 
     it(@"returns title and image components for specific accessors", ^{
-        UISegmentedControl *sc = [[UISegmentedControl alloc] initWithItems:nil];
-
         NSString *title = @"foo";
         UIImage *image = [UIImage aps_redSquare];
 
@@ -32,8 +34,6 @@ describe(@"UISegmentedControl+APSTitleWithImage", ^{
     });
 
     it(@"does not prevent using a solitary title", ^{
-        UISegmentedControl *sc = [[UISegmentedControl alloc] initWithItems:nil];
-
         NSString *titleWithImage = @"hello";
         NSString *standaloneTitle = @"goodbye";
 
@@ -46,8 +46,6 @@ describe(@"UISegmentedControl+APSTitleWithImage", ^{
     });
 
     it(@"does not prevent using a solitary image", ^{
-        UISegmentedControl *sc = [[UISegmentedControl alloc] initWithItems:nil];
-
         UIImage *imageWithTitle = [UIImage aps_redSquare];
         UIImage *standaloneImage = [UIImage aps_yellowSquare];
 
