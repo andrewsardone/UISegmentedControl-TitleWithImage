@@ -10,4 +10,8 @@
 
 }
 
+- (void)setTitle:(NSString *)title image:(UIImage *)image forSegmentAtIndex:(NSUInteger)segment
+{
+}
+
 @end
