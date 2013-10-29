@@ -119,12 +119,44 @@
     [self setTitle:title image:image forSegmentAtIndex:segment];
 }
 
+- (void)insertSegmentWithTitle:(NSString *)title
+                         image:(UIImage *)image
+                 selectedImage:(UIImage *)selectedImage
+                       atIndex:(NSUInteger)segment
+                      animated:(BOOL)animated
+{
+    [self insertSegmentWithTitle:title atIndex:segment animated:animated];
+    [self setTitle:title image:image selectedImage:selectedImage forSegmentAtIndex:segment];
+}
+
 - (void)setTitle:(NSString *)title image:(UIImage *)image forSegmentAtIndex:(NSUInteger)segment
 {
-    self.aps_segmentsTitleImagesMap[@(segment)] = @{
+    [self setTitle:title image:image selectedImage:nil forSegmentAtIndex:segment];
+}
+
+- (void)setTitle:(NSString *)title image:(UIImage *)image
+                           selectedImage:(UIImage *)selectedImage
+                       forSegmentAtIndex:(NSUInteger)segment
+{
+    self.aps_segmentsTitleImagesMap[@(segment)] = [@{
         @"title": title,
         @"image": image
-    };
+    } mutableCopy];
+    if (selectedImage) self.aps_segmentsTitleImagesMap[@(segment)][@"selectedImage"] = selectedImage;
+
+    [self aps_updateContainerAtSegment:segment
+                             withTitle:title
+                                 image:image
+                        textAttributes:[self titleTextAttributesForState:UIControlStateNormal]];
+
+    [self addTarget:self action:@selector(aps_segmentChanged:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)aps_updateContainerAtSegment:(NSUInteger)segment
+                            withTitle:(NSString *)title
+                               image:(UIImage *)image
+                      textAttributes:(NSDictionary *)textAttributes
+{
     UIView *containerView = [APSContainerView viewWithTitle:title
                                                       image:image
                                              textAttributes:[self titleTextAttributesForState:UIControlStateNormal]];
@@ -132,6 +164,17 @@
     UIImage *staticImage = [containerView aps_imageFromLayer];
 
     [self setImage:staticImage forSegmentAtIndex:segment];
+}
+
+- (void)aps_segmentChanged:(UISegmentedControl *)sender
+{
+    id idx = @(sender.selectedSegmentIndex);
+    UIImage *image = self.aps_segmentsTitleImagesMap[idx][@"selectedImage"]
+                     ?: self.aps_segmentsTitleImagesMap[idx][@"image"];
+    [self aps_updateContainerAtSegment:sender.selectedSegmentIndex
+                             withTitle:self.aps_segmentsTitleImagesMap[idx][@"title"]
+                                 image:image
+                        textAttributes:[self titleTextAttributesForState:UIControlStateSelected]];
 }
 
 #pragma mark Augmenting UISegmentedControl behavior
@@ -146,6 +189,10 @@
         class_getInstanceMethod(self, @selector(imageForSegmentAtIndex:)),
         class_getInstanceMethod(self, @selector(aps_imageForSegmentAtIndex:))
     );
+    method_exchangeImplementations(
+        class_getInstanceMethod(self, @selector(setSelectedSegmentIndex:)),
+        class_getInstanceMethod(self, @selector(aps_setSelectedSegmentIndex:))
+    );
 }
 
 - (NSString *)aps_titleForSegmentAtIndex:(NSUInteger)segment
@@ -156,8 +203,16 @@
 
 - (UIImage *)aps_imageForSegmentAtIndex:(NSUInteger)segment
 {
-    UIImage *customImage = self.aps_segmentsTitleImagesMap[@(segment)][@"image"];
+    UIImage *customImage = (self.selectedSegmentIndex == segment)
+                           ? self.aps_segmentsTitleImagesMap[@(segment)][@"selectedImage"]
+                           : self.aps_segmentsTitleImagesMap[@(segment)][@"image"];
     return customImage ?: [self aps_imageForSegmentAtIndex:segment];
+}
+
+- (void)aps_setSelectedSegmentIndex:(NSUInteger)segment
+{
+    [self aps_setSelectedSegmentIndex:segment];
+    [self aps_segmentChanged:self];
 }
 
 #pragma mark Private

@@ -20,6 +20,14 @@ describe(@"UISegmentedControl+APSTitleWithImage", ^{
         [[sc should] respondToSelector:@selector(setTitle:image:forSegmentAtIndex:)];
     });
 
+    it(@"adds an interface for inserting a segment with a title, image, and selected image", ^{
+        [[sc should] respondToSelector:@selector(insertSegmentWithTitle:image:selectedImage:atIndex:animated:)];
+    });
+
+    it(@"adds an interface for setting a segment's content to both a title, image, and selected image", ^{
+        [[sc should] respondToSelector:@selector(setTitle:image:selectedImage:forSegmentAtIndex:)];
+    });
+
     it(@"returns title and image components for specific accessors", ^{
         NSString *title = @"foo";
         UIImage *image = [UIImage aps_redSquare];
@@ -31,6 +39,25 @@ describe(@"UISegmentedControl+APSTitleWithImage", ^{
 
         [[[sc titleForSegmentAtIndex:0] should] equal:title];
         [[[sc imageForSegmentAtIndex:0] should] equal:image];
+    });
+
+    it(@"returns selected image for selected segment", ^{
+        NSString *title = @"foo";
+        UIImage *image = [UIImage aps_redSquare];
+        UIImage *selectedImage = [UIImage aps_yellowSquare];
+
+        [sc insertSegmentWithTitle:title image:image selectedImage:selectedImage atIndex:0 animated:NO];
+        [sc insertSegmentWithTitle:title image:image selectedImage:selectedImage atIndex:1 animated:NO];
+
+        sc.selectedSegmentIndex = 1;
+
+        [[[sc imageForSegmentAtIndex:0] should] equal:image];
+        [[[sc imageForSegmentAtIndex:1] should] equal:selectedImage];
+
+        sc.selectedSegmentIndex = 0;
+
+        [[[sc imageForSegmentAtIndex:0] should] equal:selectedImage];
+        [[[sc imageForSegmentAtIndex:1] should] equal:image];
     });
 
     it(@"does not prevent using a solitary title", ^{
@@ -55,6 +82,11 @@ describe(@"UISegmentedControl+APSTitleWithImage", ^{
         [[[sc imageForSegmentAtIndex:0] should] equal:imageWithTitle];
         [[sc imageForSegmentAtIndex:1] shouldNotBeNil];
         [[[sc imageForSegmentAtIndex:1] should] equal:standaloneImage];
+    });
+
+    it(@"returns nil if no image is being used for the segment", ^{
+        [sc insertSegmentWithTitle:@"foo" atIndex:0 animated:NO];
+        [[sc imageForSegmentAtIndex:0] shouldBeNil];
     });
 
 });
